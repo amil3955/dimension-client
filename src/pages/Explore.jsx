@@ -46,6 +46,7 @@ export default function Explore() {
 
       const res = await fetch(`/api/objects?${params}`)
       const data = await res.json()
+      console.log('Fetched objects:',data )
       setObjects(data)
     } catch (error) {
       console.error('Failed to fetch objects:', error)
@@ -190,7 +191,7 @@ export default function Explore() {
                     : 'grid-cols-1'
                 }`}>
                   {objects.map((obj, i) => (
-                    <ObjectCard key={obj.id} object={obj} index={i} />
+                    <ObjectCard key={obj._id} object={obj} index={i} />
                   ))}
                 </div>
               </>
